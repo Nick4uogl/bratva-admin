@@ -1,0 +1,22 @@
+.nav {
+    display: flex;
+
+    &__link {
+        font-size: 40px;
+        line-height: 54px;
+        color: inherit;
+        display: inline-block;
+
+        &:nth-child(1) {
+            margin-right: 34px;
+        }
+
+        &:nth-child(2) {
+            margin-right: auto;
+        }
+
+        &:nth-child(3) {
+            margin-left: auto;
+        }
+    }
+}

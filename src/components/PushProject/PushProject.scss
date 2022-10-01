@@ -1,0 +1,144 @@
+.project {
+    padding-top: 20px;
+    padding-bottom: 200px;
+}
+
+.form {
+    margin-top: 183px;
+    max-width: 1400px;
+
+    &__top {
+        display: flex;
+        gap: 46px;
+    }
+
+    &__column {
+        flex: 1 1 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 46px;
+        justify-content: space-between;
+    }
+
+    &__element {
+        background: #D9D9D9;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        font-weight: 700;
+        font-size: 40px;
+        line-height: 54px;
+        color: #000000;
+        padding: 20px;
+
+        &::placeholder {
+            color: inherit;
+        }
+    }
+
+
+    &__select {
+        height: 77px;
+    }
+
+    &__area {
+        height: 463px !important;
+        width: 100% !important;
+        resize: none;
+        flex: 1 1 auto;
+    }
+
+    &__input {
+        height: 77px;
+    }
+
+    &__link {
+        justify-self: flex-end;
+    }
+
+    &__image {
+        display: none;
+    }
+
+    &__btn {
+        font-weight: 700;
+        font-size: 40px;
+        line-height: 54px;
+        color: #000000;
+        text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+        margin-top: 56px;
+    }
+}
+
+.bottom {
+    margin-top: 99px;
+    display: flex;
+    gap: 56px;
+
+    &__column {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+
+        &_d {
+            flex: 0 1 55%;
+        }
+
+        &_m {
+            flex: 0 1 45%;
+        }
+    }
+
+    &__title {
+        font-weight: 700;
+        font-size: 40px;
+        line-height: 54px;
+        color: #000000;
+        text-align: center;
+    }
+
+    &__label {
+        cursor: pointer;
+
+        img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: cover;
+        }
+
+        span {
+            font-weight: 700;
+            font-size: 40px;
+            line-height: 54px;
+            padding: 120px 20px;
+            background: #D9D9D9;
+            display: inline-block;
+        }
+
+        &.drag-active {
+            background-color: #e2e2e2;
+        }
+    }
+
+    &__image {
+        height: 503px;
+        display: inline-block;
+    }
+}
+
+.select-arrow {
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-top: 25px solid #000000;
+}
+
+#drag-file-element {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 1rem;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+}
