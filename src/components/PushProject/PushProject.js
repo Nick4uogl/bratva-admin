@@ -30,7 +30,6 @@ function PushProject() {
             desktop: false
         }
     )
-    const [dragActive, setDragActive] = React.useState(false)
     const [modalOpen, setModalOpen] = React.useState(false)
 
     const close = () => setModalOpen(false)
@@ -63,38 +62,6 @@ function PushProject() {
             })
         }
     }
-
-    const handleDrag = function (e) {
-        console.log(1)
-        e.preventDefault();
-        e.stopPropagation();
-        if (e.type === "dragenter" || e.type === "dragover") {
-            setDragActive(true);
-        } else if (e.type === "dragleave") {
-            setDragActive(false);
-        }
-    };
-
-    const handleDrop = function (e) {
-        e.preventDefault();
-        e.stopPropagation();
-        setDragActive(false);
-        const name = e.target.name
-        if (e.dataTransfer.files && e.dataTransfer.files[0]) {
-            setFormData((prevForm) => {
-                return {
-                    ...prevForm,
-                    [name]: e.dataTransfer.files[0]
-                }
-            });
-            setIsSelected((prevSelected) => {
-                return {
-                    ...prevSelected,
-                    [name]: true
-                }
-            })
-        }
-    };
 
     function handleSelectChange(value, action) {
         setCategory(value)
@@ -198,30 +165,23 @@ function PushProject() {
                         </div>
                         <div className="bottom__column bottom__column_m">
                             <h2 className='bottom__title'>мобайл</h2>
-                            <label className='bottom__label' htmlFor="mobile">
+                            <label className="bottom__label" htmlFor="mobile">
                                 {isSelected.mobile ?
                                     <img src={URL.createObjectURL(formData.mobile)} alt="mobile project" /> :
                                     <span>загрузить фотку главной стр моб версии</span>
                                 }</label>
-                            <input type="file" name='mobile' accept='image/*' onChange={handleFileInput} onDragEnter={handleDrag} id='mobile' className={`form__image ${dragActive ? "drag-active" : ""}`} />
+                            <input type="file" name='mobile' accept='image/*' onChange={handleFileInput} id='mobile' className="form__image" />
                         </div>
                     </div>
                     <button className='form__btn' type='submit'>Опубликовать</button>
-                    {dragActive && <div id="drag-file-element" onDragEnter={handleDrag} onDragLeave={handleDrag} onDragOver={handleDrag} onDrop={handleDrop}></div>}
                 </form>
             </div>
             <AnimatePresence
-                // Disable any initial animations on children that
-                // are present when the component is first rendered
                 initial={false}
-                // Only render one component at a time.
-                // The exiting component will finish its exit
-                // animation before entering component is rendered
                 exitBeforeEnter={true}
-                // Fires when all exiting nodes have completed animating out
                 onExitComplete={() => null}
             >
-                {modalOpen && <Modal modalOpen={modalOpen} handleClose={close} text={"Succes. Data sent"} />}
+                {modalOpen && <Modal handleClose={close} text={"Succes. Data sent"} />}
             </AnimatePresence>
         </div>
     )
