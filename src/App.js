@@ -12,7 +12,7 @@ function App() {
     <BrowserRouter>
       <Navbar />
       <Routes>
-        <Route path="/project" element={<PushProject />} />
+        <Route path="/" element={<PushProject />} />
         <Route path="/statistic" element={<Statistic />} />
       </Routes>
     </BrowserRouter>
